@@ -1,0 +1,59 @@
+.main__container {
+  padding-top: 7rem;
+  margin-inline: 1.5rem;
+}
+
+.main__container h1,
+.main__container p {
+  text-align: center;
+}
+
+.main__container h1 {
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.main__container p {
+  font-size: 1rem;
+  color: var(--Red);
+  margin-top: 0.25rem;
+}
+
+.sub__container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.cards {
+  justify-self: center;
+  margin-bottom: 3rem;
+}
+
+.cards h2 {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  text-align: center;
+  margin: 1rem 0 0.25rem 0;
+}
+
+.cards img {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+
+  border-radius: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+  .sub__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+    .sub__container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

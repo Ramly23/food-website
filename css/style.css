@@ -1,0 +1,25 @@
+@import url("header.css");
+@import url("main.css");
+@import url("footer.css");
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
+
+:root {
+  --Poppins: "Poppins", sans-serif;
+  --Red: #d0021b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--Poppins);
+}
+
+.container {
+  max-width: 1024px;
+  margin-inline: auto;
+}

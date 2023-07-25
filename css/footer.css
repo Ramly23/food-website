@@ -1,0 +1,138 @@
+footer {
+  background: var(--Red);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  row-gap: 2rem;
+  flex-direction: column;
+  padding-inline: 1.5rem;
+  padding-bottom: 1rem;
+} 
+
+.footer__social {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
+.facebook i,
+.instagram i,
+.twitter i {
+  color: #fff;
+  font-size: 1.75rem;
+}
+
+.footer__social img {
+  width: 24px;
+  height: 24px;
+}
+
+.footer > img {
+  width: 250px;
+  object-fit: contain;
+}
+
+.footer__contact {
+  display: grid;
+  row-gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer__description {
+  width: 100%;
+}
+
+.footer__description p {
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact,
+.email,
+.address {
+  display: flex;
+  column-gap: 0.5rem;
+  color: #fff;
+  font-size: 14px;
+}
+
+.footer__information {
+  display: flex;
+  row-gap: 0.5rem;
+  flex-direction: column;
+}
+
+.footer__information ul li {
+  list-style: none;
+}
+
+.footer__information a {
+  color: #fff;
+  text-decoration: none;
+
+  font-size: 13px;
+}
+
+.footer__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 0.5rem;
+}
+
+.footer__button a {
+  color: black;
+  background: #fff;
+  padding: 10px 1rem;
+  border-radius: 0.25rem;
+  transition: 0.3s ease-in-out;
+}
+
+.footer__button a:hover {
+  transition: 0.3s ease-in-out;
+  color: var(--Red);
+} 
+
+@media screen and (min-width: 768px) {
+  .footer__information {
+    flex-direction: row;
+    column-gap: 0.5rem;
+  }
+
+  .footer {
+    justify-content: flex-start;
+    align-items: initial;
+  }
+
+  .footer__description {
+    max-width: 400px;
+  }
+
+  .footer__description p {
+    text-align: left;
+  }
+
+  .footer__contact {
+    justify-content: initial;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    column-gap: 3rem;
+    flex-wrap: wrap;
+    padding: 1rem 0;
+  }
+
+  .footer__information {
+    flex-direction: column;
+  }
+}
