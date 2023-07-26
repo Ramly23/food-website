@@ -3,20 +3,22 @@
   margin-inline: 1.5rem;
 }
 
-.main__container h1,
-.main__container p {
+.section__title,
+.section__subtitle {
   text-align: center;
 }
 
-.main__container h1 {
+.section__title {
   text-transform: uppercase;
   font-size: 2rem;
 }
 
-.main__container p {
+.main__container p,
+.section__subtitle {
   font-size: 1rem;
   color: var(--Red);
   margin-top: 0.25rem;
+  text-align: center;
 }
 
 .sub__container {
@@ -50,6 +52,103 @@
   width: 100%;
 }
 
+/* Swiper class */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  content: "";
+}
+
+.swiper-slide {
+  height: initial;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: initial;
+  bottom: 0;
+  width: initial;
+  height: initial;
+  background-color: var(--container-color);
+  border: 2px solid var(--text-color-light);
+  padding: 6px;
+  border-radius: 0.5rem;
+  font-size: 1.5rem;
+  color: var(--first-color);
+  transition: 0.5s;
+}
+
+.swiper-button-prev {
+  left: calc(50% - 3rem);
+}
+
+.swiper-button-next {
+  right: calc(50% - 3rem);
+}
+
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  border: 2px solid #ff9bb6;
+}
+
+/* Testimonials */
+.testimonials {
+  margin-bottom: 2.5rem;
+}
+
+.testimonials__cards {
+  width: 290px;
+  background-color: var(--container-color);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 0 auto;
+  transition: 0.4s;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 0px 5px rgba(250, 158, 158, 0.5);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.testimonials__cards p {
+  font-size: 14px;
+}
+
+.testimonials__container {
+  padding: 1rem 0 5rem;
+}
+
+/* Testimonials */
+.testimonials__content {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.testimonials__content img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.testimonials__profile {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.testimonials__profile-detail p {
+  font-weight: 600;
+  color: black;
+  margin-top: 0;
+}
+
+.bxs-star,
+.bxs-star-half {
+  color: rgb(239, 179, 105);
+}
+
 @media screen and (min-width: 768px) {
   .sub__container {
     grid-template-columns: repeat(2, 1fr);
@@ -57,7 +156,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .sub__container {
-        grid-template-columns: repeat(3, 1fr);
-    }
+  .sub__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }

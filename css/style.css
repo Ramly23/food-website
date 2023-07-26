@@ -6,7 +6,11 @@
 
 :root {
   --Poppins: "Poppins", sans-serif;
+
+  /* Colors */
   --Red: #d0021b;
+  --container-color: #fff;
+  --text-color-light: hsl(228, 12%, 75%);
 }
 
 * {
@@ -22,4 +26,8 @@ body {
 .container {
   max-width: 1024px;
   margin-inline: auto;
+}
+
+.section {
+  padding: 4.5rem 0 2rem;
 }
