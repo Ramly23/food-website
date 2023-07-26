@@ -21,6 +21,10 @@
   text-align: center;
 }
 
+.section__subtitle {
+  margin-inline: 1.5rem;
+}
+
 .sub__container {
   display: grid;
   align-items: center;
@@ -88,6 +92,10 @@
 .swiper-button-prev:hover,
 .swiper-button-next:hover {
   border: 2px solid #ff9bb6;
+}
+
+.swiper {
+  z-index: 0;
 }
 
 /* Testimonials */

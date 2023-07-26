@@ -114,7 +114,7 @@ footer {
   }
 
   .footer__description p {
-    text-align: left;
+    text-align: justify;
   }
 
   .footer__contact {
