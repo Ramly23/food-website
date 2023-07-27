@@ -14,6 +14,10 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <!-- Scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
     <title>Foods Hungry</title>
   </head>
   <body>
@@ -59,161 +63,171 @@
       </div>
     </header>
 
-    <!-- Main -->
-    <section>
-      <div class="main__container container">
-        <h1 class="section__title" data-aos="flip-up">Main Page</h1>
-        <p class="section__subtitle" data-aos="fade-left">
-          Press the food picture to select the restaurant
-        </p>
+    <main class="main">
+      <!-- Main -->
+      <section>
+        <div class="main__container container">
+          <h1 class="section__title" data-aos="flip-up">Main Page</h1>
+          <p class="section__subtitle" data-aos="fade-left">
+            Press the food picture to select the restaurant
+          </p>
 
-        <div class="sub__container" data-aos="fade-down">
-          <div class="cards">
-            <img src="assets/images/restaurant1.png" alt="1" />
-            <h2>WongKok</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant2.png" alt="2" />
-            <h2>KFC</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant3.png" alt="3" />
-            <h2>Pizza Hut</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant4.png" alt="4" />
-            <h2>Mcdonald</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant5.png" alt="5" />
-            <h2>Brew House</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant6.png" alt="6" />
-            <h2>The Chicken Rice Soup</h2>
-            <p>Sunway Velocity</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials section">
-      <div class="container">
-        <h1 class="section__title">Testimonials</h1>
-        <p class="section__subtitle">
-          These are the feedback that given by users from google reviews.
-        </p>
-
-        <div class="testimonials__container swiper" data-aos="fade-up">
-          <div class="swiper-wrapper">
-            <!-- First Article -->
-            <article class="testimonials__cards swiper-slide">
-              <p>
-                I like to came to this outlet due to they have less people. It's
-                a good place to sit down to chit chat with friends as well.
-              </p>
-
-              <!-- PFP and Star -->
-              <div class="testimonials__content">
-                <div class="testimonials__profile">
-                  <img src="assets/images/first_testimonial.jpg" alt="pfp" />
-                  <div class="testimonials__profile-detail">
-                    <p>Aliana</p>
-                  </div>
-                </div>
-
-                <div class="star">
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star-half"></i>
-                </div>
-              </div>
-            </article>
-
-            <!-- Second Article -->
-            <article class="testimonials__cards swiper-slide">
-              <p>
-                Came here for lunch. Prices are reasonable in this mall. Chill
-                Environment.
-              </p>
-
-              <!-- PFP and Star -->
-              <div class="testimonials__content">
-                <div class="testimonials__profile">
-                  <img src="assets/images/second__testimonials.jpg" alt="pfp" />
-                  <div class="testimonials__profile-detail">
-                    <p>Fatimah</p>
-                  </div>
-                </div>
-
-                <div class="star">
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                </div>
-              </div>
-            </article>
-
-            <!-- Third Article -->
-            <article class="testimonials__cards swiper-slide">
-              <p>
-                Service is ok unlike some of the comments I saw, maybe these are
-                new batch of staff or are retrained.
-              </p>
-
-              <!-- PFP and Star -->
-              <div class="testimonials__content">
-                <div class="testimonials__profile">
-                  <img src="assets/images/third_testimonials.jpg" alt="pfp" />
-                  <div class="testimonials__profile-detail">
-                    <p>Haziq</p>
-                  </div>
-                </div>
-
-                <div class="star">
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                  <i class="bx bxs-star"></i>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <div class="swiper-button-next">
-            <i class="bx bx-chevron-right"></i>
-          </div>
-          <div class="swiper-button-prev">
-            <i class="bx bx-chevron-left"></i>
+          <div class="sub__container" data-aos="fade-down">
+            <div class="cards">
+              <img src="assets/images/restaurant1.png" alt="1" />
+              <h2>WongKok</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant2.png" alt="2" />
+              <h2>KFC</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant3.png" alt="3" />
+              <h2>Pizza Hut</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant4.png" alt="4" />
+              <h2>Mcdonald</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant5.png" alt="5" />
+              <h2>Brew House</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant6.png" alt="6" />
+              <h2>The Chicken Rice Soup</h2>
+              <p>Sunway Velocity</p>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="testimonials section">
+        <div class="container">
+          <h1 class="section__title">Testimonials</h1>
+          <p class="section__subtitle">
+            These are the feedback that given by users from google reviews.
+          </p>
+
+          <div class="testimonials__container swiper" data-aos="fade-up">
+            <div class="swiper-wrapper">
+              <!-- First Article -->
+              <article class="testimonials__cards swiper-slide">
+                <p>
+                  I like to came to this outlet due to they have less people.
+                  It's a good place to sit down to chit chat with friends as
+                  well.
+                </p>
+
+                <!-- PFP and Star -->
+                <div class="testimonials__content">
+                  <div class="testimonials__profile">
+                    <img src="assets/images/first_testimonial.jpg" alt="pfp" />
+                    <div class="testimonials__profile-detail">
+                      <p>Aliana</p>
+                    </div>
+                  </div>
+
+                  <div class="star">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star-half"></i>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Second Article -->
+              <article class="testimonials__cards swiper-slide">
+                <p>
+                  Came here for lunch. Prices are reasonable in this mall. Chill
+                  Environment.
+                </p>
+
+                <!-- PFP and Star -->
+                <div class="testimonials__content">
+                  <div class="testimonials__profile">
+                    <img
+                      src="assets/images/second__testimonials.jpg"
+                      alt="pfp"
+                    />
+                    <div class="testimonials__profile-detail">
+                      <p>Fatimah</p>
+                    </div>
+                  </div>
+
+                  <div class="star">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Third Article -->
+              <article class="testimonials__cards swiper-slide">
+                <p>
+                  Service is ok unlike some of the comments I saw, maybe these
+                  are new batch of staff or are retrained.
+                </p>
+
+                <!-- PFP and Star -->
+                <div class="testimonials__content">
+                  <div class="testimonials__profile">
+                    <img src="assets/images/third_testimonials.jpg" alt="pfp" />
+                    <div class="testimonials__profile-detail">
+                      <p>Haziq</p>
+                    </div>
+                  </div>
+
+                  <div class="star">
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                    <i class="bx bxs-star"></i>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="swiper-button-next">
+              <i class="bx bx-chevron-right"></i>
+            </div>
+            <div class="swiper-button-prev">
+              <i class="bx bx-chevron-left"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer>
       <div class="footer">
-        <img class="footer__img" src="assets/images/foods.png" alt="food" />
+        <img
+          class="footer__img footer__animate"
+          src="assets/images/foods.png"
+          alt="food"
+        />
 
-        <div class="footer__description">
+        <div class="footer__description footer__animate">
           <p>
             Discover the best restaurants and order your favorite dishes with
             foods.com! For more information, you can visit our social page.
           </p>
         </div>
 
-        <div class="footer__contact">
+        <div class="footer__contact footer__animate">
           <div class="contact">
             <p>Contact Number: 012-3456789</p>
           </div>
@@ -230,7 +244,7 @@
           </div>
         </div>
 
-        <div class="footer__information">
+        <div class="footer__information footer__animate">
           <div class="footer__button">
             <a href="#">About Us</a>
             <a href="#">Terms Of Services</a>
@@ -242,7 +256,7 @@
           </div>
         </div>
 
-        <div class="footer__social">
+        <div class="footer__social footer__animate">
           <div class="facebook">
             <a href="https://www.facebook.com" target="_blank"
               ><i class="bx bxl-facebook-square"></i

@@ -13,6 +13,10 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <!-- Scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+    
     <title>Foods Hungry</title>
   </head>
   <body>
@@ -58,56 +62,62 @@
     </header>
 
     <!-- Main -->
-    <section>
-      <div class="main__container container">
-        <h1 class="section__title" data-aos="flip-up">Near Me</h1>
-        <p class="section__subtitle" data-aos="fade-left">
-          These are the restaurant that near your house.
-        </p>
+    <main class="main">
+      <section>
+        <div class="main__container container">
+          <h1 class="section__title" data-aos="flip-up">Near Me</h1>
+          <p class="section__subtitle" data-aos="fade-left">
+            These are the restaurant that near your house.
+          </p>
 
-        <div class="sub__container" data-aos="fade-down">
-          <div class="cards">
-            <img src="assets/images/restaurant1.png" alt="1" />
-            <h2>WongKok</h2>
-            <p>Sunway Velocity</p>
+          <div class="sub__container" data-aos="fade-down">
+            <div class="cards">
+              <img src="assets/images/restaurant1.png" alt="1" />
+              <h2>WongKok</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant2.png" alt="2" />
+              <h2>KFC</h2>
+              <p>Sunway Velocity</p>
+            </div>
+            <div class="cards">
+              <img src="assets/images/restaurant3.png" alt="3" />
+              <h2>Pizza Hut</h2>
+              <p>Sunway Velocity</p>
+            </div>
           </div>
-          <div class="cards">
-            <img src="assets/images/restaurant2.png" alt="2" />
-            <h2>KFC</h2>
-            <p>Sunway Velocity</p>
-          </div>
-          <div class="cards">
-            <img src="assets/images/restaurant3.png" alt="3" />
-            <h2>Pizza Hut</h2>
-            <p>Sunway Velocity</p>
-          </div>
+
+          <iframe
+            class="google__maps"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.9358477757078!2d101.7224154065594!3d3.128601827421643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc36169f1cb7c1%3A0x5be38950cb8746cb!2sWong%20Kok%20Char%20Chan%20Teng%20%40%20Sunway%20Velocity!5e0!3m2!1sen!2smy!4v1690307104300!5m2!1sen!2smy"
+            width="600"
+            height="450"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            data-aos="fade-up"
+          ></iframe>
         </div>
-
-        <iframe
-          class="google__maps"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1991.9358477757078!2d101.7224154065594!3d3.128601827421643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc36169f1cb7c1%3A0x5be38950cb8746cb!2sWong%20Kok%20Char%20Chan%20Teng%20%40%20Sunway%20Velocity!5e0!3m2!1sen!2smy!4v1690307104300!5m2!1sen!2smy"
-          width="600"
-          height="450"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          data-aos="fade-up"
-        ></iframe>
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer>
       <div class="footer">
-        <img class="footer__img" src="assets/images/foods.png" alt="food" />
+        <img
+          class="footer__img footer__animate"
+          src="assets/images/foods.png"
+          alt="food"
+        />
 
-        <div class="footer__description">
+        <div class="footer__description footer__animate">
           <p>
             Discover the best restaurants and order your favorite dishes with
             foods.com! For more information, you can visit our social page.
           </p>
         </div>
 
-        <div class="footer__contact">
+        <div class="footer__contact footer__animate">
           <div class="contact">
             <p>Contact Number: 012-3456789</p>
           </div>
@@ -124,7 +134,7 @@
           </div>
         </div>
 
-        <div class="footer__information">
+        <div class="footer__information footer__animate">
           <div class="footer__button">
             <a href="#">About Us</a>
             <a href="#">Terms Of Services</a>
@@ -136,7 +146,7 @@
           </div>
         </div>
 
-        <div class="footer__social">
+        <div class="footer__social footer__animate">
           <div class="facebook">
             <a href="https://www.facebook.com" target="_blank"
               ><i class="bx bxl-facebook-square"></i
