@@ -21,6 +21,7 @@
 
 body {
   font-family: var(--Poppins);
+  background-color: rgba(45, 45, 45, 0.05);
 }
 
 .container {

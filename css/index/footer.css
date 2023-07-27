@@ -9,8 +9,7 @@ footer {
   flex: 1;
   row-gap: 2rem;
   flex-direction: column;
-  padding-inline: 1.5rem;
-  padding: 1rem 0 3rem;
+  padding: 1rem 1.5rem 3rem;
 } 
 
 .footer__social {

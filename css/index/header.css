@@ -135,6 +135,17 @@
   display: none;
 }
 
+.nav__button a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav__button:hover a {
+  color: #fff;
+  transition: color 0.3s ease-in-out;
+}
+
 @media screen and (min-width: 1024px) {
   .nav__container-mobile {
     display: none;
@@ -164,6 +175,10 @@
 
   .nav__button:hover {
     background: #fff;
+    color: var(--Red);
+  }
+
+  .nav__button:hover a {
     color: var(--Red);
   }
 }
