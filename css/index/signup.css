@@ -1,6 +1,7 @@
 .card__container {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
+  margin-top: 3rem;
 }
 
 .card__content {
@@ -8,4 +9,94 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: calc(100% - 3rem);
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.25rem;
+  padding: 2rem;
+}
+
+.card__content h1 {
+  text-transform: uppercase;
+  font-size: 1.25rem;
+}
+
+.card__content p {
+  font-size: 13px;
+}
+
+.card__content > div {
+  margin-top: 1.5rem;
+}
+
+.card__email {
+  margin-bottom: 1rem;
+}
+
+.card__email,
+.card__password {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.25rem;
+}
+
+.card__email label,
+.card__password label {
+  font-size: 13px;
+}
+
+.card__email input[type=email],
+.card__password input[type=password] {
+  font-family: var(--Poppins);
+  font-size: 12px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(45, 45, 45, 0.2);
+  border-radius: 0.25rem;
+}
+
+.card__content > div button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.5rem;
+  border: 1px solid rgba(45, 45, 45, 0.2);
+  border-radius: 0.25rem;
+  font-family: var(--Poppins);
+  font-size: 12px;
+  background: #fff;
+  transition: 0.3s ease-in-out;
+}
+
+.card__content > div button:hover {
+  transition: 0.3s ease-in-out;
+  background: var(--Red);
+  color: #fff;
+}
+
+.card__login {
+  display: flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  margin-top: 1.25rem;
+  justify-content: center;
+}
+
+.vertical__line {
+  border-left: 1px solid rgba(45, 45, 45, 1);
+  height: 20px;
+}
+
+.card__login a {
+  font-size: 13px;
+  text-decoration: none;
+  color: black;
+  transition: color 0.3s ease-in-out;
+}
+
+.card__login a:hover {
+  transition: color 0.3s ease-in-out;
+  color: var(--Red);
+}
+
+@media screen and (min-width: 576px) {
+  .card__content {
+    width: 400px;
+  }
 }

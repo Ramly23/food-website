@@ -41,14 +41,11 @@ footer {
   justify-content: center;
 }
 
-.footer__description {
-  width: 100%;
-}
-
 .footer__description p {
   color: #fff;
   font-size: 14px;
   text-align: center;
+  max-width: 320px;
 }
 
 .contact,
