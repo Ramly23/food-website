@@ -10,7 +10,7 @@ footer {
   row-gap: 2rem;
   flex-direction: column;
   padding-inline: 1.5rem;
-  padding-bottom: 1rem;
+  padding: 1rem 0 3rem;
 } 
 
 .footer__social {
