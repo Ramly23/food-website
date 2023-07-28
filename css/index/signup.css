@@ -1,15 +1,11 @@
 .card__container {
-  position: relative;
-  min-height: 85vh;
-  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 9rem 0rem 5rem 0rem;
 }
 
 .card__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: calc(100% - 3rem);
   background: rgba(255, 255, 255, 0.6);
   border-radius: 0.25rem;
   padding: 2rem;
@@ -28,24 +24,32 @@
   margin-top: 1.5rem;
 }
 
-.card__email {
+.card__email,
+.card__first-name,
+.card__second-name {
   margin-bottom: 1rem;
 }
 
 .card__email,
-.card__password {
+.card__password,
+.card__first-name,
+.card__second-name {
   display: flex;
   flex-direction: column;
   row-gap: 0.25rem;
 }
 
 .card__email label,
-.card__password label {
+.card__password label,
+.card__first-name label,
+.card__second-name label {
   font-size: 13px;
 }
 
 .card__email input[type=email],
-.card__password input[type=password] {
+.card__password input[type=password],
+.card__first-name input[type=text],
+.card__second-name input[type=text] {
   font-family: var(--Poppins);
   font-size: 12px;
   padding: 0.5rem 1rem;
