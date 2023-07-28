@@ -2,6 +2,7 @@
 @import url("index/header.css");
 @import url("index/footer.css");
 @import url("index/signup.css");
+@import url("index/dark-theme.css");
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap");
 
@@ -23,6 +24,7 @@
 body {
   font-family: var(--Poppins);
   background-color: rgba(45, 45, 45, 0.05);
+  transition: 0.3s; /* For animation dark mode */
 }
 
 .container {

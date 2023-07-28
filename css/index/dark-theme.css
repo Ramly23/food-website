@@ -1,0 +1,10 @@
+body.dark-theme {
+    background-color: hsl(15, 12%, 10%);
+    transition: 0.3s; /* For animation dark mode */
+}
+
+.dark-theme .section__title,
+.dark-theme .section__subtitle,
+.dark-theme .cards h2 {
+    color: #fff;
+}
