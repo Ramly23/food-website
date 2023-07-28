@@ -86,7 +86,7 @@
 
 .nav__bar ul {
   display: grid;
-  row-gap: 0.5rem;
+  row-gap: 1.5rem;
 }
 
 .nav__bar ul li {
@@ -142,7 +142,7 @@
   display: none;
 }
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 768px) {
   .nav__container-mobile {
     display: none;
   }

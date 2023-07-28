@@ -5,6 +5,11 @@
   padding: 9rem 0rem 5rem 0rem;
 }
 
+.card__container > div {
+  width: 100%;
+  margin-inline: 1.5rem;
+}
+
 .card__content {
   background: rgba(255, 255, 255, 0.6);
   border-radius: 0.25rem;
@@ -101,7 +106,7 @@
 }
 
 @media screen and (min-width: 576px) {
-  .card__content {
+  .card__container > div {
     width: 400px;
   }
 }
