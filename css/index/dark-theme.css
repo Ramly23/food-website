@@ -5,6 +5,11 @@ body.dark-theme {
 
 .dark-theme .section__title,
 .dark-theme .section__subtitle,
-.dark-theme .cards h2 {
+.dark-theme .cards h2,
+.dark-theme .cards__content > div > h2 {
     color: #fff;
+}
+
+.dark-theme .card__content {
+    box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.5);
 }

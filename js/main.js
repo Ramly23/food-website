@@ -41,7 +41,7 @@ const sr = ScrollReveal({
   reset: false,
 });
 
-sr.reveal(`.swiper, .section__title, .section__subtitle`);
+sr.reveal(`.swiper, .section__title, .section__subtitle, .cards__content`);
 sr.reveal(`.card__content`, { origin: "left" });
 sr.reveal(`.cards, .footer__animate`, { interval: 300 });
 
@@ -81,3 +81,41 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+// Change Images When Click The Appropriate Images
+const orderImages = document.getElementById("order-image");
+const selectedText = document.getElementById("selectedText");
+const selectedLocation = document.getElementById("seletedLocation");
+const selectedStars = document.getElementById("selectedStars");
+
+// Get the URL parameters
+const urlParams = new URLSearchParams(window.location.search);
+const imageUrl = urlParams.get("image");
+const text = urlParams.get("text");
+const location = urlParams.get("location");
+const stars = urlParams.get("stars");
+
+orderImages.src = imageUrl;
+selectedText.textContent = text;
+selectedLocation.textContent = location;
+displayStars(parseFloat(stars));
+
+// Display Stars
+function displayStars(stars) {
+  selectedStars.innerHTML = "";
+
+  const fullStars = Math.floor(stars);
+  const hasHalfStar = stars % 1 !== 0;
+
+  for(let i = 0; i < fullStars; i++) {
+    const fullStarIcon = document.createElement('i');
+    fullStarIcon.className = 'bx bxs-star';
+    selectedStars.appendChild(fullStarIcon);
+  }
+
+  if(hasHalfStar) {
+    const halfStarIcon = document.createElement('i');
+    halfStarIcon.className = 'bx bxs-star-half';
+    selectedStars.appendChild(halfStarIcon);
+  }
+}

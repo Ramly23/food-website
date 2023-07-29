@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image.x-icon" href="assets/favicon/favicon.ico" />
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <title>Foods Hungry</title>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav container" data-aos="fade-down">
+        <img src="assets/images/foods.png" alt="food" />
+
+        <div class="nav__bar">
+          <ul>
+            <li><a href="index.html">Main Page</a></li>
+            <li><a href="nearme.html">Near Me</a></li>
+            <li><a href="index.html">Order Now</a></li>
+          </ul>
+        </div>
+
+        <div class="nav__icon">
+          <a href="signup.html"><i class="bx bx-user"></i></a>
+          <i class="bx bx-moon change-theme" id="theme-button"></i>
+          <i class="bx bx-menu show"></i>
+          <i class="bx bx-x"></i>
+        </div>
+      </nav>
+
+      <div class="nav__container-mobile">
+        <div class="nav__bar">
+          <ul>
+            <li><a href="index.html">Main Page</a></li>
+            <li><a href="nearme.html">Near Me</a></li>
+            <li><a href="index.html">Order Now</a></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="main__container container">
+        <h1 class="section__title">Overview Of The Restaurant</h1>
+        <p class="section__subtitle">
+          Below are the location and menu to order your desire food.
+        </p>
+
+        <div class="order__container">
+          <div class="sub__container">
+            <div class="cards order">
+              <img src="" alt="1" id="order-image" />
+            </div>
+
+            <div class="cards__content">
+              <div>
+                <h2 id="selectedText">WongKok</h2>
+                <div class="star" id="selectedStars"></div>
+              </div>
+
+              <p id="seletedLocation">
+                Lot 4-70, 4th floor, Sunway Velocity Mall
+              </p>
+
+              <div class="cards__buttons">
+                <a href="#">Menu Below</a>
+                <a href="index.html">Select Again</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer">
+        <img
+          class="footer__img footer__animate"
+          src="assets/images/foods.png"
+          alt="food"
+        />
+
+        <div class="footer__description footer__animate">
+          <p>
+            Discover the best restaurants and order your favorite dishes with
+            foods.com! For more information, you can visit our social page.
+          </p>
+        </div>
+
+        <div class="footer__contact footer__animate">
+          <div class="contact">
+            <p>Contact Number: 012-3456789</p>
+          </div>
+          <div class="email">
+            <p>Email:</p>
+            <p>foods9228@gmail.com</p>
+          </div>
+          <div class="address">
+            <p>Address:</p>
+            <p>
+              Jalan Maluri,<br />
+              123 Maluri 68000 Ampang
+            </p>
+          </div>
+        </div>
+
+        <div class="footer__information footer__animate">
+          <div class="footer__button">
+            <a href="#">About Us</a>
+            <a href="#">Terms Of Services</a>
+          </div>
+
+          <div class="footer__button">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Policy</a>
+          </div>
+        </div>
+
+        <div class="footer__social footer__animate">
+          <div class="facebook">
+            <a href="https://www.facebook.com" target="_blank"
+              ><i class="bx bxl-facebook-square"></i
+            ></a>
+          </div>
+          <div class="instagram">
+            <a href="https://www.instagram.com" target="_blank"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+          </div>
+          <div class="twitter">
+            <a href="https://www.twitter.com" target="_blank"
+              ><i class="bx bxl-twitter"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--=============== SWIPER JS ===============-->
+    <script src="js/swiper-bundle.min.js" type="module"></script>
+
+    <script src="js/main.js" type="module"></script>
+
+    <script src="js/aos.js" type="module"></script>
+  </body>
+</html>
