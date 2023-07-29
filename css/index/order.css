@@ -1,5 +1,4 @@
 .order__container {
-  margin-inline: 1.5rem;
   padding-bottom: 2rem;
 }
 
@@ -8,7 +7,7 @@
 }
 
 .cards__content {
-  text-align: center;
+  text-align: left;
 }
 
 .cards__content h2 {
@@ -34,6 +33,16 @@
   border-radius: 0.25rem;
   font-size: 13px;
   box-shadow: 0 0 10px 0 rgba(247, 106, 106, 0.5);
+}
+
+@media screen and (max-width: 414px) {
+  .cards__content > div {
+    flex-direction: column;
+  }
+
+  .cards__content .cards__buttons {
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width: 768px) {
