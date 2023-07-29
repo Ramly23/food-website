@@ -35,6 +35,24 @@
   box-shadow: 0 0 10px 0 rgba(247, 106, 106, 0.5);
 }
 
+.order__menu {
+  margin-top: 5rem;
+}
+
+.order__cards {
+  width: 290px;
+  margin: 3rem 0 6rem;
+  background: #fff;
+  border-radius: 0.25rem;
+}
+
+.order__cards img {
+  width: 290px;
+  height: 290px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
 @media screen and (max-width: 414px) {
   .cards__content > div {
     flex-direction: column;

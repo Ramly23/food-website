@@ -32,6 +32,20 @@ var swiperTestimonials = new Swiper(".testimonials__container", {
   },
 });
 
+/*=============== SWIPER ORDER ===============*/
+var orderTestimonials = new Swiper(".order__menu-container", {
+  spaceBetween: 32,
+  grabCursor: true,
+  centeredSlides: true,
+  slidesPerView: "auto",
+  loop: true,
+
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
 /*=============== SCROLL REVEAL ANIMATION ===============*/
 const sr = ScrollReveal({
   origin: "top",
@@ -88,17 +102,47 @@ const selectedText = document.getElementById("selectedText");
 const selectedLocation = document.getElementById("seletedLocation");
 const selectedStars = document.getElementById("selectedStars");
 
-// Get the URL parameters
+//  Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
-const imageUrl = urlParams.get("image");
-const text = urlParams.get("text");
-const location = urlParams.get("location");
-const stars = urlParams.get("stars");
 
-orderImages.src = imageUrl;
-selectedText.textContent = text;
-selectedLocation.textContent = location;
-displayStars(parseFloat(stars));
+if (urlParams.has("image")) {
+  const imageUrl = urlParams.get("image");
+  const text = urlParams.get("text");
+  const location = urlParams.get("location");
+  const stars = parseFloat(urlParams.get("stars"));
+
+  orderImages.src = imageUrl;
+  selectedText.textContent = text;
+  selectedLocation.textContent = location;
+  displayStars(stars);
+} else {
+  const imageLinks = document.querySelectorAll(".imageLink");
+
+  imageLinks.forEach((imageLink) => {
+    imageLink.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const imageUrl = this.dataset.image;
+      const text = this.dataset.text;
+      const location = this.dataset.location;
+      const stars = parseFloat(this.dataset.stars);
+
+      openOrderPage(imageUrl, text, location, stars);
+    });
+  });
+}
+
+function openOrderPage(imageUrl, text, location, stars) {
+  const url = new URL("order.html", window.location.origin);
+  const params = new URLSearchParams();
+  params.set("image", imageUrl);
+  params.set("text", text);
+  params.set("location", location);
+  params.set("stars", stars);
+  url.search = params.toString();
+
+  window.location.href = url.href;
+}
 
 // Display Stars
 function displayStars(stars) {
@@ -107,15 +151,15 @@ function displayStars(stars) {
   const fullStars = Math.floor(stars);
   const hasHalfStar = stars % 1 !== 0;
 
-  for(let i = 0; i < fullStars; i++) {
-    const fullStarIcon = document.createElement('i');
-    fullStarIcon.className = 'bx bxs-star';
+  for (let i = 0; i < fullStars; i++) {
+    const fullStarIcon = document.createElement("i");
+    fullStarIcon.className = "bx bxs-star";
     selectedStars.appendChild(fullStarIcon);
   }
 
-  if(hasHalfStar) {
-    const halfStarIcon = document.createElement('i');
-    halfStarIcon.className = 'bx bxs-star-half';
+  if (hasHalfStar) {
+    const halfStarIcon = document.createElement("i");
+    halfStarIcon.className = "bx bxs-star-half";
     selectedStars.appendChild(halfStarIcon);
   }
 }
