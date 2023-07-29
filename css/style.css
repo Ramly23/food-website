@@ -21,6 +21,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--Poppins);
   background-color: rgba(45, 45, 45, 0.05);
@@ -38,4 +42,10 @@ body {
 
 .main {
   overflow: hidden;
+}
+
+@media screen and (min-width: 2000px) {
+  body {
+    zoom: 2.5;
+  }
 }
