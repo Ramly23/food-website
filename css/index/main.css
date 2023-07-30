@@ -21,10 +21,6 @@
   text-align: center;
 }
 
-.section__subtitle {
-  margin-inline: 1.5rem;
-}
-
 .sub__container {
   display: grid;
   align-items: center;

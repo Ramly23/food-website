@@ -34,7 +34,7 @@ var swiperTestimonials = new Swiper(".testimonials__container", {
 
 /*=============== SWIPER ORDER ===============*/
 var orderTestimonials = new Swiper(".order__menu-container", {
-  spaceBetween: 32,
+  spaceBetween: 50,
   grabCursor: true,
   centeredSlides: true,
   slidesPerView: "auto",
@@ -100,7 +100,8 @@ themeButton.addEventListener("click", () => {
 const orderImages = document.getElementById("order-image");
 const selectedText = document.getElementById("selectedText");
 const selectedLocation = document.getElementById("seletedLocation");
-const selectedStars = document.getElementById("selectedStars");
+// const selectedStars = document.getElementById("selectedStars");
+const selectedStars = document.querySelectorAll("#selectedStars");
 
 //  Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -114,7 +115,11 @@ if (urlParams.has("image")) {
   orderImages.src = imageUrl;
   selectedText.textContent = text;
   selectedLocation.textContent = location;
-  displayStars(stars);
+
+  selectedStars.forEach((container) => {
+    displayStars(stars, container);
+  })
+
 } else {
   const imageLinks = document.querySelectorAll(".imageLink");
 
@@ -145,7 +150,7 @@ function openOrderPage(imageUrl, text, location, stars) {
 }
 
 // Display Stars
-function displayStars(stars) {
+function displayStars(stars, selectedStars) {
   selectedStars.innerHTML = "";
 
   const fullStars = Math.floor(stars);
