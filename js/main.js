@@ -23,15 +23,29 @@ const orderImages = document.getElementById("order-image");
 const selectedText = document.getElementById("selectedText");
 const selectedLocation = document.getElementById("seletedLocation");
 const selectedStars = document.querySelectorAll("#selectedStars");
-const MenuOrder1 = document.getElementById("menu-1");
-const MenuOrder2 = document.getElementById("menu-2");
-const MenuOrder3 = document.getElementById("menu-3");
-const MenuOrder4 = document.getElementById("menu-4");
-const MenuOrder5 = document.getElementById("menu-5");
-const MenuOrder6 = document.getElementById("menu-6");
-const MenuOrder7 = document.getElementById("menu-7");
-const MenuOrder8 = document.getElementById("menu-8");
-const MenuOrder9 = document.getElementById("menu-9");
+const menuOrderElements = [
+  document.getElementById("menu-1"),
+  document.getElementById("menu-2"),
+  document.getElementById("menu-3"),
+  document.getElementById("menu-4"),
+  document.getElementById("menu-5"),
+  document.getElementById("menu-6"),
+  document.getElementById("menu-7"),
+  document.getElementById("menu-8"),
+  document.getElementById("menu-9"),
+];
+
+const titleElements = [
+  document.getElementById("title-1"),
+  document.getElementById("title-2"),
+  document.getElementById("title-3"),
+  document.getElementById("title-4"),
+  document.getElementById("title-5"),
+  document.getElementById("title-6"),
+  document.getElementById("title-7"),
+  document.getElementById("title-8"),
+  document.getElementById("title-9"),
+];
 
 //  Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -41,28 +55,20 @@ if (urlParams.has("image")) {
   const text = urlParams.get("text");
   const location = urlParams.get("location");
   const stars = parseFloat(urlParams.get("stars"));
-  const menuOrder1 = urlParams.get("menu1");
-  const menuOrder2 = urlParams.get("menu2");
-  const menuOrder3 = urlParams.get("menu3");
-  const menuOrder4 = urlParams.get("menu4");
-  const menuOrder5 = urlParams.get("menu5");
-  const menuOrder6 = urlParams.get("menu6");
-  const menuOrder7 = urlParams.get("menu7");
-  const menuOrder8 = urlParams.get("menu8");
-  const menuOrder9 = urlParams.get("menu9");
+  const menusArray = JSON.parse(urlParams.get("menus"));
+  const titles = JSON.parse(urlParams.get("titles"));
 
   orderImages.src = imageUrl;
   selectedText.textContent = text;
   selectedLocation.textContent = location;
-  MenuOrder1.src = menuOrder1;
-  MenuOrder2.src = menuOrder2;
-  MenuOrder3.src = menuOrder3;
-  MenuOrder4.src = menuOrder4;
-  MenuOrder5.src = menuOrder5;
-  MenuOrder6.src = menuOrder6;
-  MenuOrder7.src = menuOrder7;
-  MenuOrder8.src = menuOrder8;
-  MenuOrder9.src = menuOrder9;
+
+  menusArray.forEach((menu, index) => {
+    menuOrderElements[index].src = menu;
+  });
+
+  titles.forEach((text, index) => {
+    titleElements[index].textContent = text;
+  });
 
   selectedStars.forEach((container) => {
     displayStars(stars, container);
@@ -78,65 +84,23 @@ if (urlParams.has("image")) {
       const text = this.dataset.text;
       const location = this.dataset.location;
       const stars = parseFloat(this.dataset.stars);
-      const menuOrder1 = this.dataset.menu1;
-      const menuOrder2 = this.dataset.menu2;
-      const menuOrder3 = this.dataset.menu3;
-      const menuOrder4 = this.dataset.menu4;
-      const menuOrder5 = this.dataset.menu5;
-      const menuOrder6 = this.dataset.menu6;
-      const menuOrder7 = this.dataset.menu7;
-      const menuOrder8 = this.dataset.menu8;
-      const menuOrder9 = this.dataset.menu9;
+      const menusArray = JSON.parse(this.dataset.menus);
+      const titles = JSON.parse(this.dataset.titles);
 
-      openOrderPage(
-        imageUrl,
-        text,
-        location,
-        stars,
-        menuOrder1,
-        menuOrder2,
-        menuOrder3,
-        menuOrder4,
-        menuOrder5,
-        menuOrder6,
-        menuOrder7,
-        menuOrder8,
-        menuOrder9
-      );
+      openOrderPage(imageUrl, text, location, stars, menusArray, titles);
     });
   });
 }
 
-function openOrderPage(
-  imageUrl,
-  text,
-  location,
-  stars,
-  menuOrder1,
-  menuOrder2,
-  menuOrder3,
-  menuOrder4,
-  menuOrder5,
-  menuOrder6,
-  menuOrder7,
-  menuOrder8,
-  menuOrder9
-) {
+function openOrderPage(imageUrl, text, location, stars, menusArray, titles) {
   const url = new URL("order.html", window.location.origin);
   const params = new URLSearchParams();
   params.set("image", imageUrl);
   params.set("text", text);
   params.set("location", location);
   params.set("stars", stars);
-  params.set("menu1", menuOrder1);
-  params.set("menu2", menuOrder2);
-  params.set("menu3", menuOrder3);
-  params.set("menu4", menuOrder4);
-  params.set("menu5", menuOrder5);
-  params.set("menu6", menuOrder6);
-  params.set("menu7", menuOrder7);
-  params.set("menu8", menuOrder8);
-  params.set("menu9", menuOrder9);
+  params.set("menus", JSON.stringify(menusArray));
+  params.set("titles", JSON.stringify(titles));
   url.search = params.toString();
 
   window.location.href = url.href;
