@@ -47,6 +47,18 @@ const titleElements = [
   document.getElementById("title-9"),
 ];
 
+const priceElements = [
+  document.getElementById("price-1"),
+  document.getElementById("price-2"),
+  document.getElementById("price-3"),
+  document.getElementById("price-4"),
+  document.getElementById("price-5"),
+  document.getElementById("price-6"),
+  document.getElementById("price-7"),
+  document.getElementById("price-8"),
+  document.getElementById("price-9"),
+]
+
 //  Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
 
@@ -57,6 +69,7 @@ if (urlParams.has("image")) {
   const stars = parseFloat(urlParams.get("stars"));
   const menusArray = JSON.parse(urlParams.get("menus"));
   const titles = JSON.parse(urlParams.get("titles"));
+  const prices = JSON.parse(urlParams.get("prices"))
 
   orderImages.src = imageUrl;
   selectedText.textContent = text;
@@ -69,6 +82,10 @@ if (urlParams.has("image")) {
   titles.forEach((text, index) => {
     titleElements[index].textContent = text;
   });
+
+  prices.forEach((text, index) => {
+    priceElements[index].textContent = text;
+  })
 
   selectedStars.forEach((container) => {
     displayStars(stars, container);
@@ -86,13 +103,14 @@ if (urlParams.has("image")) {
       const stars = parseFloat(this.dataset.stars);
       const menusArray = JSON.parse(this.dataset.menus);
       const titles = JSON.parse(this.dataset.titles);
+      const prices = JSON.parse(this.dataset.prices);
 
-      openOrderPage(imageUrl, text, location, stars, menusArray, titles);
+      openOrderPage(imageUrl, text, location, stars, menusArray, titles, prices);
     });
   });
 }
 
-function openOrderPage(imageUrl, text, location, stars, menusArray, titles) {
+function openOrderPage(imageUrl, text, location, stars, menusArray, titles, prices) {
   const url = new URL("order.html", window.location.origin);
   const params = new URLSearchParams();
   params.set("image", imageUrl);
@@ -101,6 +119,7 @@ function openOrderPage(imageUrl, text, location, stars, menusArray, titles) {
   params.set("stars", stars);
   params.set("menus", JSON.stringify(menusArray));
   params.set("titles", JSON.stringify(titles));
+  params.set("prices", JSON.stringify(prices));
   url.search = params.toString();
 
   window.location.href = url.href;
