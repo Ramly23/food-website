@@ -57,7 +57,7 @@ const priceElements = [
   document.getElementById("price-7"),
   document.getElementById("price-8"),
   document.getElementById("price-9"),
-]
+];
 
 //  Get the URL parameters
 const urlParams = new URLSearchParams(window.location.search);
@@ -69,7 +69,7 @@ if (urlParams.has("image")) {
   const stars = parseFloat(urlParams.get("stars"));
   const menusArray = JSON.parse(urlParams.get("menus"));
   const titles = JSON.parse(urlParams.get("titles"));
-  const prices = JSON.parse(urlParams.get("prices"))
+  const prices = JSON.parse(urlParams.get("prices"));
 
   orderImages.src = imageUrl;
   selectedText.textContent = text;
@@ -85,7 +85,7 @@ if (urlParams.has("image")) {
 
   prices.forEach((text, index) => {
     priceElements[index].textContent = text;
-  })
+  });
 
   selectedStars.forEach((container) => {
     displayStars(stars, container);
@@ -105,12 +105,28 @@ if (urlParams.has("image")) {
       const titles = JSON.parse(this.dataset.titles);
       const prices = JSON.parse(this.dataset.prices);
 
-      openOrderPage(imageUrl, text, location, stars, menusArray, titles, prices);
+      openOrderPage(
+        imageUrl,
+        text,
+        location,
+        stars,
+        menusArray,
+        titles,
+        prices
+      );
     });
   });
 }
 
-function openOrderPage(imageUrl, text, location, stars, menusArray, titles, prices) {
+function openOrderPage(
+  imageUrl,
+  text,
+  location,
+  stars,
+  menusArray,
+  titles,
+  prices
+) {
   const url = new URL("order.html", window.location.origin);
   const params = new URLSearchParams();
   params.set("image", imageUrl);
