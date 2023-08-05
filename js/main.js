@@ -18,6 +18,23 @@ function closeMobileMenu() {
 
 closeButton.addEventListener("click", closeMobileMenu);
 
+// Toggle Cart Menu
+const openButton = document.querySelector(".bxs-cart");
+const closeCartButton = document.getElementById("close-button");
+const cartMenu = document.getElementById("cart-menu");
+
+function openCartMenu(){
+  cartMenu.classList.add("show");
+}
+
+openButton.addEventListener("click", openCartMenu);
+
+function closeCartMenu() {
+  cartMenu.classList.remove("show");
+}
+
+closeCartButton.addEventListener("click", closeCartMenu);
+
 // Change Images When Click The Appropriate Images
 const orderImages = document.getElementById("order-image");
 const selectedText = document.getElementById("selectedText");
@@ -237,3 +254,4 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+

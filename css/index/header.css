@@ -21,7 +21,7 @@
 .nav__icon {
   display: flex;
   align-items: center;
-  column-gap: 0.5rem;
+  column-gap: 0.75rem;
 }
 
 .nav__icon a {
@@ -58,6 +58,88 @@
   font-size: 1.25rem;
   height: initial;
   color: #fff;
+}
+
+.bxs-cart {
+  font-size: 1.5rem;
+  height: initial;
+  color: #fff;
+}
+
+.nav__icon > div {
+  position: relative;
+  height: 23px;
+  padding-right: 10px;
+}
+
+.quantity {
+  position: absolute;
+  top: 0;
+  right: -6px;
+  font-size: 12px;
+  background: red;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #fff;
+}
+
+.nav__cart-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  min-height: 100vh;
+  width: 250px;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s ease-in-out;
+}
+
+.nav__cart-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transition: 0.3s ease-in-out;
+}
+
+.nav__cart-menu h1 {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.nav__cart-menu p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(100% - 3rem);
+  text-align: center;
+}
+
+.nav__cart-menu .button {
+  position: absolute;
+  bottom: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 3rem);
+  column-gap: 0.5rem;
+}
+
+.button button {
+  padding: 0.6rem 0;
+  width: 100%;
+  font-family: var(--Poppins);
+  font-size: 12px;
+  background: var(--Red);
+  border-radius: 0.25rem;
+  color: #fff;
+  border: none;
+  outline: none;
+  box-shadow: 0 5px 15px 0 var(--Red);
 }
 
 .nav__container-mobile {

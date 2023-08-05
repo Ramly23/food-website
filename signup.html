@@ -23,7 +23,7 @@
   <body>
     <!-- Header -->
     <header class="header">
-      <nav class="nav container" data-aos="fade-down">
+      <nav class="nav container">
         <img src="assets/images/foods.png" alt="food" />
 
         <div class="nav__bar">
@@ -35,12 +35,29 @@
         </div>
 
         <div class="nav__icon">
+          <!-- Theme change button -->
+          <div>
+            <i class="bx bxs-cart"></i>
+            <span class="quantity">0</span>
+          </div>
+
           <a href="signup.html"><i class="bx bx-user"></i></a>
           <i class="bx bx-moon change-theme" id="theme-button"></i>
           <i class="bx bx-menu show"></i>
           <i class="bx bx-x"></i>
         </div>
       </nav>
+
+      <!-- Cart Menu -->
+      <div class="nav__cart-menu" id="cart-menu">
+        <h1>Your Selected Food</h1>
+        <p>There is currently no items selected.</p>
+
+        <div class="button">
+          <button>CheckOut</button>
+          <button id="close-button">Close</button>
+        </div>
+      </div>
 
       <div class="nav__container-mobile">
         <div class="nav__bar">
@@ -188,7 +205,5 @@
     <script src="js/swiper-bundle.min.js" type="module"></script>
 
     <script src="js/main.js" type="module"></script>
-
-    <script src="js/aos.js" type="module"></script>
   </body>
 </html>
