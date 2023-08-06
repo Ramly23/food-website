@@ -23,7 +23,7 @@ const openButton = document.querySelector(".bxs-cart");
 const closeCartButton = document.getElementById("close-button");
 const cartMenu = document.getElementById("cart-menu");
 
-function openCartMenu(){
+function openCartMenu() {
   cartMenu.classList.add("show");
 }
 
@@ -254,4 +254,303 @@ themeButton.addEventListener("click", () => {
   localStorage.setItem("selected-theme", getCurrentTheme());
   localStorage.setItem("selected-icon", getCurrentIcon());
 });
+
+// Add To Cart
+
+/* ======================= WITH LOCAL STORAGE METHOD ================== */
+
+// Step 1: Attach event listeners to the "Add To Order" buttons
+const addToOrderButtons = document.querySelectorAll(
+  ".order__cards-description button"
+);
+addToOrderButtons.forEach((button) => {
+  button.addEventListener("click", addToCart);
+});
+
+let cartItems = {};
+
+// Load cart items from localStorage when the page loads
+document.addEventListener("DOMContentLoaded", function () {
+  const savedCartItems = localStorage.getItem("cartItems");
+  if (savedCartItems) {
+    cartItems = JSON.parse(savedCartItems);
+    updateCartUI();
+  }
+});
+
+function updateCartUI() {
+  const cartMenu = document.getElementById("cart-menu");
+  const cartItemsList = cartMenu.querySelector("#list");
+  const cartTotal = cartMenu.querySelector("#cart-total");
+  const cartNoItems = cartMenu.querySelector(".nav__cart-menu > p");
+  const quantitySpan = document.querySelector(".quantity");
+
+  // Clear the cart items list
+  cartItemsList.innerHTML = "";
+
+  // Loop through cartItems and update the cart UI
+  Object.entries(cartItems).forEach(([title, item]) => {
+    const listItem = document.createElement("li");
+    listItem.dataset.title = title;
+    listItem.innerHTML = `
+      <img src="${item.imageSrc}" alt="${title}" class="selected-item-image">
+      <div class="wrapper">
+        <span>${title} - RM ${item.price.toFixed(2)}</span>
+        <div>
+          <button class="decrement-button">-</button>
+          <button class="item-quantity">${item.quantity}</button>
+          <button class="increment-button">+</button>
+        </div>
+      </div>
+    `;
+    cartItemsList.appendChild(listItem);
+  });
+
+  // Calculate and update the total quantity of all items in the cart
+  const totalQuantity = Object.values(cartItems).reduce((total, item) => total + item.quantity, 0);
+  quantitySpan.textContent = totalQuantity;
+
+  // Calculate and update the total price
+  const currentTotal = Object.values(cartItems).reduce(
+    (total, item) => total + item.price * item.quantity,
+    0
+  );
+  cartTotal.textContent = `Total: RM ${currentTotal.toFixed(2)}`;
+
+  if (totalQuantity === 0) {
+    cartNoItems.classList.remove("hide");
+  } else {
+    cartNoItems.classList.add("hide");
+  }
+}
+
+function addToCart(event) {
+  const clickedButton = event.target;
+  const orderCard = clickedButton.closest(".order__cards");
+  const title = orderCard.querySelector("h2").textContent;
+  const price = parseFloat(orderCard.querySelector("p").textContent.replace("RM ", ""));
+  const imageSrc = orderCard.querySelector("img").getAttribute("src");
+
+  // Check if the selected item is already in the cart
+  if (cartItems.hasOwnProperty(title)) {
+    cartItems[title].quantity += 1; // Increment the quantity
+  } else {
+    cartItems[title] = {
+      price: price,
+      quantity: 1,
+      imageSrc: imageSrc,
+    };
+  }
+
+  // Save the updated cartItems to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Update the cart UI
+  updateCartUI();
+}
+
+function incrementQuantity(event) {
+  const clickedButton = event.target;
+  const listItem = clickedButton.closest("li");
+  const title = listItem.dataset.title;
+
+  cartItems[title].quantity += 1;
+
+  // Save the updated cartItems to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Update the cart UI
+  updateCartUI();
+}
+
+function decrementQuantity(event) {
+  const clickedButton = event.target;
+  const listItem = clickedButton.closest("li");
+  const title = listItem.dataset.title;
+
+  if (cartItems[title].quantity > 1) {
+    cartItems[title].quantity -= 1;
+  } else {
+    // If the quantity is 1 or less, remove the item from the cart
+    delete cartItems[title];
+    listItem.remove();
+  }
+
+  // Save the updated cartItems to localStorage
+  localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+  // Update the cart UI
+  updateCartUI();
+}
+
+// Add event listeners for the increment and decrement buttons
+document.addEventListener("click", function (event) {
+  if (event.target.matches(".increment-button")) {
+    incrementQuantity(event);
+  } else if (event.target.matches(".decrement-button")) {
+    decrementQuantity(event);
+  }
+});
+
+/* ============================== WITHOUT LOCAL STORAGE METHOD ======================= */
+
+// Step 1: Create an object to store selected items and their quantities
+// const cartItems = {};
+
+// function addToCart(event) {
+//   const clickedButton = event.target;
+//   const orderCard = clickedButton.closest(".order__cards");
+//   const title = orderCard.querySelector("h2").textContent;
+//   const price = parseFloat(
+//     orderCard.querySelector("p").textContent.replace("RM ", "")
+//   );
+//   const imageSrc = orderCard.querySelector("img").getAttribute("src");
+
+//   const cartMenu = document.getElementById("cart-menu");
+//   const cartItemsList = cartMenu.querySelector("#list");
+//   const cartTotal = cartMenu.querySelector("#cart-total");
+//   const cartNoItems = cartMenu.querySelector(".nav__cart-menu > p");
+//   const quantitySpan = document.querySelector(".quantity");
+
+//   // Check if the selected item is already in the cart
+//   if (cartItems.hasOwnProperty(title)) {
+//     cartItems[title].quantity += 1; // Increment the quantity
+//   } else {
+//     cartItems[title] = {
+//       price: price,
+//       quantity: 1,
+//       imageSrc: imageSrc,
+//     };
+
+//     // If the selected item is not in the cart, create a new list item
+//     const listItem = document.createElement("li");
+//     listItem.dataset.title = title;
+//     listItem.innerHTML = `
+//       <img src="${imageSrc}" alt="${title}" class="selected-item-image">
+//       <div class="wrapper">
+//         <span>${title} - RM ${price.toFixed(2)}</span>
+//         <div>
+//           <button class="decrement-button">-</button>
+//           <button class="item-quantity">${cartItems[title].quantity}</button>
+//           <button class="increment-button">+</button>
+//         </div>
+//       </div>
+//     `;
+//     cartItemsList.appendChild(listItem);
+//   }
+
+//   // Update the quantity button for the selected item
+//   const quantityButton = cartItemsList.querySelector(
+//     `li[data-title="${title}"] .item-quantity`
+//   );
+//   quantityButton.textContent = cartItems[title].quantity;
+
+//   // Calculate and update the total quantity of all items in the cart
+//   const totalQuantity = Object.values(cartItems).reduce(
+//     (total, item) => total + item.quantity,
+//     0
+//   );
+//   quantitySpan.textContent = totalQuantity;
+
+//   // Calculate and update the total price
+//   const currentTotal = Object.values(cartItems).reduce(
+//     (total, item) => total + item.price * item.quantity,
+//     0
+//   );
+//   cartTotal.textContent = `Total: RM ${currentTotal.toFixed(2)}`;
+//   cartNoItems.classList.add("hide");
+// }
+
+// function incrementQuantity(event) {
+//   const clickedButton = event.target;
+//   const listItem = clickedButton.closest("li");
+//   const title = listItem.dataset.title;
+
+//   cartItems[title].quantity += 1;
+
+//   // Update the quantity button for the selected item
+//   const quantityButton = listItem.querySelector(".item-quantity");
+//   quantityButton.textContent = cartItems[title].quantity;
+
+//   // Calculate the total quantity of all items in the cart
+//   const totalQuantity = Object.values(cartItems).reduce(
+//     (total, item) => total + item.quantity,
+//     0
+//   );
+
+//   // Update the quantity in the cart menu
+//   const quantitySpan = document.querySelector(".quantity");
+//   quantitySpan.textContent = totalQuantity;
+
+//   // Calculate and update the total price
+//   updateTotalPrice();
+// }
+
+// function decrementQuantity(event) {
+//   const clickedButton = event.target;
+//   const listItem = clickedButton.closest("li");
+//   const title = listItem.dataset.title;
+
+//   if (cartItems[title].quantity > 1) {
+//     cartItems[title].quantity -= 1;
+
+//     // Update the quantity button for the selected item
+//     const quantityButton = listItem.querySelector(".item-quantity");
+//     quantityButton.textContent = cartItems[title].quantity;
+
+//     // Calculate the total quantity of all items in the cart
+//     const totalQuantity = Object.values(cartItems).reduce(
+//       (total, item) => total + item.quantity,
+//       0
+//     );
+
+//     // Update the quantity in the cart menu
+//     const quantitySpan = document.querySelector(".quantity");
+//     quantitySpan.textContent = totalQuantity;
+
+//     // Calculate and update the total price
+//     updateTotalPrice();
+//   } else {
+//     // If the quantity is 1 or less, remove the item from the cart
+//     delete cartItems[title];
+//     listItem.remove();
+
+//     // Update the quantity in the cart menu
+//     const quantitySpan = document.querySelector(".quantity");
+//     const totalQuantity = Object.values(cartItems).reduce(
+//       (total, item) => total + item.quantity,
+//       0
+//     );
+//     quantitySpan.textContent = totalQuantity;
+
+//     // Calculate and update the total price
+//     updateTotalPrice();
+//   }
+// }
+
+// function updateTotalPrice() {
+//   const cartTotal = document.getElementById("cart-total");
+//   const currentTotal = Object.values(cartItems).reduce(
+//     (total, item) => total + item.price * item.quantity,
+//     0
+//   );
+//   cartTotal.textContent = `Total: RM ${currentTotal.toFixed(2)}`;
+
+//   const cartNoItems = document.querySelector(".nav__cart-menu > p");
+//   if (currentTotal === 0) {
+//     cartNoItems.classList.remove("hide");
+//   } else {
+//     cartNoItems.classList.add("hide");
+//   }
+// }
+
+// // Add event listeners for the increment and decrement buttons
+// document.addEventListener("click", function (event) {
+//   if (event.target.matches(".increment-button")) {
+//     incrementQuantity(event);
+//   } else if (event.target.matches(".decrement-button")) {
+//     decrementQuantity(event);
+//   }
+// });
+
 
